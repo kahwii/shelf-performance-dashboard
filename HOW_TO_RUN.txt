@@ -1,0 +1,54 @@
+Shelf Performance Dashboard - how to run it
+===========================================
+
+The two mistakes that stop it from starting:
+
+  1. The libraries are not installed yet.
+  2. It is started with Python instead of with Streamlit. A Streamlit app is
+     a server, so VS Code's Run button and `python app.py` will not work.
+     You will see nothing, or "No module named 'plotly'".
+
+
+WINDOWS (PowerShell)
+--------------------
+Open the folder that holds app.py, then:
+
+    cd C:\Users\HP\Downloads\Shelf_Dashboard_Streamlit
+    py -m pip install -r requirements.txt
+    py -m streamlit run app.py
+
+A browser tab opens at http://localhost:8501. Stop it with Ctrl+C.
+
+
+macOS / LINUX
+-------------
+    cd Shelf_Dashboard_Streamlit
+    python3 -m pip install -r requirements.txt
+    python3 -m streamlit run app.py
+
+
+IF `py` IS NOT RECOGNISED
+-------------------------
+Use `python` instead of `py`:
+
+    python -m pip install -r requirements.txt
+    python -m streamlit run app.py
+
+
+KEEP THE FOLDER TOGETHER
+------------------------
+    app.py
+    requirements.txt
+    data\retail_store_sales_model_ready.csv
+    .streamlit\config.toml
+
+app.py looks for the dataset next to itself, so moving app.py out on its own
+will break it.
+
+
+GETTING THE LIVE LINK THE BRIEF ASKS FOR
+----------------------------------------
+1. Put these files in a public GitHub repository.
+2. Go to share.streamlit.io and sign in with GitHub.
+3. New app -> pick the repository -> main file path: app.py -> Deploy.
+4. You get a permanent https://....streamlit.app link. It is free.
